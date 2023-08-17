@@ -1,5 +1,7 @@
 package set.OperacoesBasicas.ConjuntoConvidados;
 
+import java.util.Objects;
+
 public class Convidado {
     private String nome;
     private int condigoConvite;
@@ -11,6 +13,18 @@ public class Convidado {
 
     public int getCondigoConvite() {
         return condigoConvite;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Convidado convidado)) return false;
+        return getCondigoConvite() == convidado.getCondigoConvite();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCondigoConvite());
     }
 
     @Override
